@@ -51,6 +51,16 @@ const PdfViewer = (props: Props) => {
       {loading && (
         <p className="text-center">
           This might take a while. Try refreshing the page periodically.
+          <br></br>If the file is not loading, try{" "}
+          <a
+            className="underline"
+            href={getRemoteUrl(
+              mapUrl(decodeURIComponent(encoded!)) +
+                `/${encodeURIComponent(filename)}`
+            )}
+          >
+            downloading it.
+          </a>
         </p>
       )}
     </>
