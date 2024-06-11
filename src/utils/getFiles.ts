@@ -8,7 +8,7 @@ export async function getFiles(url: string): Promise<Node[]> {
   const res = await fetch("/directory.json");
   const obj = await res.json();
   let arr = url.split("/");
-  arr.splice(0, 2);
+  arr.splice(0, 3);
   let newObj = obj;
   while (arr.length >= 1) {
     for (let i = 0; i < Object.keys(newObj).length; i++) {

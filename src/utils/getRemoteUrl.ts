@@ -12,7 +12,7 @@ export function getRemoteUrl(local: string): string {
   // ]);
   local = local.split("Non Scientific").join("/adabe");
   let arr = local.split("/");
-  arr.splice(0, 3);
+  arr.splice(0, 4);
   let remote = [];
   for (let i = 0; i < arr.length; i++) {
     // if (map.has(arr[i])) {
