@@ -1,7 +1,12 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <meta http-equiv="refresh" content="0; URL=/" />
+    <script type="text/javascript">
+      // Redirect all 404 requests to index.html
+      var pathname = window.location.pathname;
+      var query = window.location.search;
+      window.location.replace("/?" + pathname + query);
+    </script>
   </head>
   <body></body>
 </html>
