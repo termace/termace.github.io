@@ -26,10 +26,10 @@ export default function App() {
             element={
               <OptionsPage
                 setUrl={setUrl}
-                title={"Chose the language"}
+                title={"Choose Your Language"}
                 options={[
                   { title: "English", goTo: "/en" },
-                  { title: "Francais", goTo: "/fr" },
+                  { title: "French", goTo: "/fr" },
                 ]}
               />
             }
@@ -52,7 +52,7 @@ export default function App() {
             element={
               <OptionsPage
                 setUrl={setUrl}
-                title={"Qu'est ce que nous etudions aujourd'hui?"}
+                title={"Qu’allons-nous étudier aujourd’hui"}
                 options={[
                   { title: "Scientifique", goTo: "/fr/sc" },
                   { title: "Non Scientifique", goTo: "/fr/nsc" },
@@ -65,7 +65,7 @@ export default function App() {
             element={
               <OptionsPage
                 setUrl={setUrl}
-                title={"Chose faculty"}
+                title={"Choose Your Class"}
                 options={[
                   { title: "GS", goTo: "/en/sc/gs" },
                   { title: "LS", goTo: "/en/sc/ls" },
@@ -78,7 +78,7 @@ export default function App() {
             element={
               <OptionsPage
                 setUrl={setUrl}
-                title={"Choisir la faculte"}
+                title={"Choisissez Votre Classe"}
                 options={[
                   { title: "SG", goTo: "/fr/sc/sg" },
                   { title: "SV", goTo: "/fr/sc/sv" },
@@ -91,9 +91,9 @@ export default function App() {
             element={
               <OptionsPage
                 setUrl={setUrl}
-                title={"Choisir la matiere"}
+                title={"Choisissez Votre Matière"}
                 options={[
-                  { title: "Mathematiques", goTo: "/fr/sc/sg/maths" },
+                  { title: "Mathématiques", goTo: "/fr/sc/sg/maths" },
                   { title: "Physique", goTo: "/fr/sc/sg/phy" },
                   { title: "Chimie", goTo: "/fr/sc/sg/chimie" },
                 ]}
@@ -105,9 +105,9 @@ export default function App() {
             element={
               <OptionsPage
                 setUrl={setUrl}
-                title={"Choisir la matiere"}
+                title={"Choisissez Votre Matière"}
                 options={[
-                  { title: "Mathematiques", goTo: "/fr/sc/sv/maths" },
+                  { title: "Mathématiques", goTo: "/fr/sc/sv/maths" },
                   { title: "Physique", goTo: "/fr/sc/sv/phy" },
                   { title: "Chimie", goTo: "/fr/sc/sv/chimie" },
                   { title: "Biologie", goTo: "/fr/sc/sv/bio" },
@@ -120,11 +120,11 @@ export default function App() {
             element={
               <OptionsPage
                 setUrl={setUrl}
-                title={"Chose the subject"}
+                title={"Choose Your Subject"}
                 options={[
-                  { title: "Maths", goTo: "/en/sc/gs/maths" },
+                  { title: "Mathematics", goTo: "/en/sc/gs/maths" },
                   { title: "Physics", goTo: "/en/sc/gs/phy" },
-                  { title: "Chem", goTo: "/en/sc/gs/chem" },
+                  { title: "Chemistry", goTo: "/en/sc/gs/chem" },
                 ]}
               />
             }
@@ -136,10 +136,10 @@ export default function App() {
                 setUrl={setUrl}
                 title={"Chose the subject"}
                 options={[
-                  { title: "Maths", goTo: "/en/sc/ls/maths" },
+                  { title: "Mathematics", goTo: "/en/sc/ls/maths" },
                   { title: "Physics", goTo: "/en/sc/ls/phy" },
-                  { title: "Chem", goTo: "/en/sc/ls/chem" },
-                  { title: "Bio", goTo: "/en/sc/ls/bio" },
+                  { title: "Chemistry", goTo: "/en/sc/ls/chem" },
+                  { title: "Biology", goTo: "/en/sc/ls/bio" },
                 ]}
               />
             }
