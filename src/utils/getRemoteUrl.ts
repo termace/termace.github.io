@@ -1,4 +1,4 @@
-export function getRemoteUrl(local: string): string {
+export function getRemoteUrl(local: string, lower = false): string {
   // const map = new Map<string, string>([
   //   ["GS", encodeURIComponent("12 GS")],
   //   ["LS", encodeURIComponent("12 LS")],
@@ -18,13 +18,11 @@ export function getRemoteUrl(local: string): string {
     // if (map.has(arr[i])) {
     //   remote.push(map.get(arr[i]));
     // } else {
-    remote.push(arr[i]);
+    remote.push(lower ? arr[i].toLowerCase() : arr[i]);
     // }
   }
 
-  let out =
-    "https://raw.githubusercontent.com/termace/files/master/" +
-    remote.join("/");
+  let out = remote.join("/");
 
   return out;
 }

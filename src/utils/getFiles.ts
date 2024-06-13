@@ -12,7 +12,10 @@ export async function getFiles(url: string): Promise<Node[]> {
   let newObj = obj;
   while (arr.length >= 1) {
     for (let i = 0; i < Object.keys(newObj).length; i++) {
-      if (encodeURIComponent(Object.keys(newObj)[i].trim()) === arr[0]) {
+      if (
+        encodeURIComponent(Object.keys(newObj)[i].trim()) ===
+        arr[0].split(",").join("%2C")
+      ) {
         newObj = newObj[Object.keys(newObj)[i]];
       }
     }
