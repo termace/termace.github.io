@@ -156,10 +156,12 @@ const PdfViewer: React.FC<Props> = ({ setUrl }) => {
           If the file is not loading, try{" "}
           <a
             className="underline"
-            href={getRemoteUrl(
+            href={`https://raw.githubusercontent.com/termace/files/master/${getRemoteUrl(
               mapUrl(decodeURIComponent(encoded!)) +
                 `/${encodeURIComponent(filename)}`
-            )}
+            )}`
+              .split(",")
+              .join("%2C")}
           >
             downloading it
           </a>
