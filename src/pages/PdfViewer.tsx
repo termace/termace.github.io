@@ -4,6 +4,7 @@ import { getRemoteUrl } from "../utils/getRemoteUrl";
 import { mapUrl } from "../utils/mapUrl";
 import * as pdfjs from "pdfjs-dist";
 import { PDFDocumentProxy } from "pdfjs-dist/types/src/display/api";
+import { Loading } from "../components";
 
 // Set worker source URL
 // pdfjs.GlobalWorkerOptions.workerSrc = new URL(
@@ -141,32 +142,32 @@ const PdfViewer: React.FC<Props> = ({ setUrl }) => {
       )}
 
       {loading && (
-        <p className="text-center">
+        <div className="flex flex-col justify-center items-center max-w-[95%]">
           {error ? (
-            <span>
+            <span className="text-center">
               There was an error displaying the pdf, it's safe to assume that
               the best thing to do is to download it.
             </span>
           ) : (
-            <span>
-              This might take a while. Do NOT refresh the page more than once.
-            </span>
+            <Loading />
           )}
           <br />
-          If the file is not loading, try{" "}
-          <a
-            className="underline"
-            href={`https://raw.githubusercontent.com/termace/files/master/${getRemoteUrl(
-              mapUrl(decodeURIComponent(encoded!)) +
-                `/${encodeURIComponent(filename)}`
-            )}`
-              .split(",")
-              .join("%2C")}
-          >
-            downloading it
-          </a>
-          .
-        </p>
+          <span>
+            If the file is not loading, try{" "}
+            <a
+              className="underline"
+              href={`https://raw.githubusercontent.com/termace/files/master/${getRemoteUrl(
+                mapUrl(decodeURIComponent(encoded!)) +
+                  `/${encodeURIComponent(filename)}`
+              )}`
+                .split(",")
+                .join("%2C")}
+            >
+              downloading it
+            </a>
+            .
+          </span>
+        </div>
       )}
     </>
   );

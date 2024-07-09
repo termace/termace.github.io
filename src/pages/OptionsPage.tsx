@@ -1,5 +1,5 @@
 import { Link, useLocation } from "react-router-dom";
-import { Option } from "../components";
+import { Loading, Option } from "../components";
 import { OptionT } from "../types/OptionType";
 import { useEffect } from "react";
 import { mapUrl } from "../utils/mapUrl";
@@ -67,7 +67,7 @@ export default function OptionsPage(props: Props) {
               }
             })
           ) : (
-            <p>Loading...</p>
+            <Loading />
           )}
         </div>
       </div>
