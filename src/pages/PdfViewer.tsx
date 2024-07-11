@@ -35,16 +35,35 @@ const PdfViewer: React.FC<Props> = ({ setUrl }) => {
     const localUrl =
       mapUrl(decodeURIComponent(encoded)) + `/${encodeURIComponent(filename)}`;
 
-    // Load balancing between github and netlify
-    const remoteUrl =
-      Math.random() > 0.5
-        ? `https://raw.githubusercontent.com/termace/files/master/${getRemoteUrl(
-            localUrl
-          )}`
-        : `https://termace-files.netlify.app/${getRemoteUrl(localUrl, true)}`;
+    async function getCachedUrl(): Promise<string> {
+      let remoteUrl;
+      let urls = [
+        `https://raw.githubusercontent.com/termace/files/master/${getRemoteUrl(
+          localUrl
+        )}`,
+        `https://termace-files.netlify.app/${getRemoteUrl(localUrl, true)}`,
+      ];
+      let j = -1;
+      for (let i = 0; i < urls.length; i++) {
+        const response = await caches.match(urls[i]);
+        if (response !== undefined) {
+          j = i;
+          break;
+        }
+      }
+      if (j > -1) {
+        remoteUrl = urls[j];
+      } else {
+        // todo: implement a random function
+        remoteUrl = Math.random() > 1 / urls.length ? urls[0] : urls[1];
+      }
 
-    async function loadPdf(url: string) {
+      return remoteUrl;
+    }
+
+    async function loadPdf(getUrl: Function) {
       try {
+        const url = await getUrl();
         const proxy = await pdfjs.getDocument({
           url: url,
         }).promise;
@@ -62,7 +81,7 @@ const PdfViewer: React.FC<Props> = ({ setUrl }) => {
 
     setUrl(mapUrl(decodeURIComponent(encoded))); // Update URL state
 
-    loadPdf(remoteUrl);
+    loadPdf(getCachedUrl);
 
     return () => {
       if (document) {
